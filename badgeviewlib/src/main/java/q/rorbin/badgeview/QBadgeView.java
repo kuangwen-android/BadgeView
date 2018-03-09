@@ -448,7 +448,7 @@ public class QBadgeView extends View implements Badge {
             canvas.drawBitmap(mBitmapClip, left, top, mBadgeBackgroundPaint);
             canvas.restore();
             mBadgeBackgroundPaint.setXfermode(null);
-            if (mBadgeText.isEmpty() || mBadgeText.length() == 1) {
+            if (mBadgeText.isEmpty() || mBadgeText.length() <=3) {
                 canvas.drawCircle(mBadgeBackgroundRect.centerX(), mBadgeBackgroundRect.centerY(),
                         mBadgeBackgroundRect.width() / 2f, mBadgeBackgroundBorderPaint);
             } else {
@@ -472,7 +472,7 @@ public class QBadgeView extends View implements Badge {
             mBitmapClip.recycle();
         }
         float radius = getBadgeCircleRadius();
-        if (mBadgeText.isEmpty() || mBadgeText.length() == 1) {
+        if (mBadgeText.isEmpty() || mBadgeText.length() <=3) {
             mBitmapClip = Bitmap.createBitmap((int) radius * 2, (int) radius * 2,
                     Bitmap.Config.ARGB_4444);
             Canvas srcCanvas = new Canvas(mBitmapClip);
@@ -495,7 +495,7 @@ public class QBadgeView extends View implements Badge {
     private float getBadgeCircleRadius() {
         if (mBadgeText.isEmpty()) {
             return mBadgePadding;
-        } else if (mBadgeText.length() == 1) {
+        } else if (mBadgeText.length() <=3) {
             return mBadgeTextRect.height() > mBadgeTextRect.width() ?
                     mBadgeTextRect.height() / 2f + mBadgePadding * 0.5f :
                     mBadgeTextRect.width() / 2f + mBadgePadding * 0.5f;
