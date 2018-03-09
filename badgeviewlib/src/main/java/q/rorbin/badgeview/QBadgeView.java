@@ -394,7 +394,7 @@ public class QBadgeView extends View implements Badge {
         if (center.x == -1000 && center.y == -1000) {
             return;
         }
-        if (mBadgeText.isEmpty() || mBadgeText.length() == 1) {
+        if (mBadgeText.isEmpty() || mBadgeText.length() <= 3) {
             mBadgeBackgroundRect.left = center.x - (int) radius;
             mBadgeBackgroundRect.top = center.y - (int) radius;
             mBadgeBackgroundRect.right = center.x + (int) radius;
